@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.teacherassistant.data.models.Student
 
+@Dao
 interface StudentDao {
     val all: LiveData<List<Student>>
         @Query("SELECT * FROM students") get

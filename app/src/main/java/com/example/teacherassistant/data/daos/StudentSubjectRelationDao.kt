@@ -5,7 +5,7 @@ import androidx.room.*
 import com.example.teacherassistant.data.models.StudentSubjectRelation
 
 @Dao
-interface StudentSubjectDao {
+interface StudentSubjectRelationDao {
     val all: LiveData<List<StudentSubjectRelation>>
         @Query("SELECT * FROM student_to_subject_rel") get
 
