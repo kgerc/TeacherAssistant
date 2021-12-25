@@ -1,4 +1,4 @@
-package com.example.teacherassistant.data.models
+package com.example.teacherassistant.data.entities
 
 import android.os.Build
 import androidx.annotation.RequiresApi

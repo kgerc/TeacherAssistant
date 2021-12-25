@@ -2,7 +2,7 @@ package com.example.teacherassistant.data.daos
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.teacherassistant.data.models.Grade
+import com.example.teacherassistant.data.entities.Grade
 
 @Dao
 interface GradeDao {

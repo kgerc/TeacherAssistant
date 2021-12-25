@@ -1,4 +1,4 @@
-package com.example.teacherassistant.data.models
+package com.example.teacherassistant.data.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
