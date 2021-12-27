@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId "com.example.teacherassistant"
         minSdk 21

@@ -50,6 +50,9 @@ class StudentsViewModel constructor(
         )
     }
 
+    fun clear() {
+    }
+
     override fun deleteStudent(student: Student) = TODO()
     override fun showEditStudent(student: Student) = TODO()
 }
