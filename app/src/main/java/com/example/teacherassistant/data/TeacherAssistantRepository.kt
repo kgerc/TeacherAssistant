@@ -1,14 +1,16 @@
 package com.example.teacherassistant.data
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.example.teacherassistant.data.entities.Student
 import com.example.teacherassistant.data.entities.StudentSubjectRelation
 import com.example.teacherassistant.data.entities.Subject
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class TeacherAssistantRepo(private val database: TeacherAssistantDatabase) {
-
+@DelicateCoroutinesApi
+class TeacherAssistantRepository(private val database: TeacherAssistantDatabase) {
     //ADD & UPDATE
     fun addStudentSubjectRelation(student: Student, subject: Subject) {
         GlobalScope.launch {
@@ -17,6 +19,7 @@ class TeacherAssistantRepo(private val database: TeacherAssistantDatabase) {
             )
         }
     }
+
     fun addSubjectWithStudents(subject: Subject, vararg students: Student) {
         GlobalScope.launch {
             subject.id = database.subjects.insert(subject)
@@ -24,6 +27,7 @@ class TeacherAssistantRepo(private val database: TeacherAssistantDatabase) {
             database.studentSubjectRels.insert(*relations)
         }
     }
+
     fun addStudentWithSubjects(student: Student, vararg subjects: Subject) {
         GlobalScope.launch {
             student.id = database.students.insert(student)
@@ -31,6 +35,7 @@ class TeacherAssistantRepo(private val database: TeacherAssistantDatabase) {
             database.studentSubjectRels.insert(*relations)
         }
     }
+
     fun addOrEditStudent(student: Student, vararg subjects: Subject) {
         GlobalScope.launch {
             if (student.id == 0L) {
@@ -98,4 +103,8 @@ class TeacherAssistantRepo(private val database: TeacherAssistantDatabase) {
             database.students.delete(student)
         }
     }
+
+    // live data objects
+    val editedStudent = MutableLiveData<Student>()
+    val editedSubject = MutableLiveData<Subject>()
 }

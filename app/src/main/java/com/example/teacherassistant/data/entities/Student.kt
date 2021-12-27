@@ -5,12 +5,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "students")
 class Student(
-    val name: String,
-    val surname: String,
+    val firstName: String,
+    val surName: String,
     val idCardNumber: Long
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 
-    override fun toString(): String = "$name $surname"
+    override fun toString(): String = "$firstName $surName"
 }
