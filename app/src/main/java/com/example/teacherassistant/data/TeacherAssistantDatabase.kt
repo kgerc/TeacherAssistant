@@ -28,10 +28,6 @@ abstract class TeacherAssistantDatabase : RoomDatabase() {
 
 class Converters {
     @TypeConverter
-    fun toWeekDay(value: Int): Subject.DayOfWeek = enumValues<Subject.DayOfWeek>()[value]
-    @TypeConverter
-    fun fromWeekDay(weekDay: Subject.DayOfWeek): Int = weekDay.ordinal
-    @TypeConverter
     fun toGradeStatus(value: Int): Grade.Status = enumValues<Grade.Status>()[value]
     @TypeConverter
     fun fromGradeStatus(status: Grade.Status): Int = status.ordinal
