@@ -13,4 +13,9 @@
     <string name="surname_hint">Surname</string>
     <string name="id_card_number_hint">Id card number</string>
     <string name="menu_subjects">Subjects</string>
+    <string name="add_student_title">Add a student</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="choose_subjects_for_student">Choose subjects for student</string>
 </resources>

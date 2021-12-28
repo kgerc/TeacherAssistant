@@ -34,7 +34,7 @@ class StudentAdapter(owner: LifecycleOwner, data: LiveData<List<Student>>, priva
 
         holder.studentNameTv.text = student.firstName
         holder.studentSurnameTv.text = student.surName
-        holder.studentIdCardNumberTv.text = student.idCardNumber.toString()
+        holder.studentIdCardNumberTv.text = student.idCardNumber
         holder.removeStudentBtn.setOnClickListener {
             callback.deleteStudent(student)
         }

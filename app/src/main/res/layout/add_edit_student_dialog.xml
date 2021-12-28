@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/id_card_number_hint"
             android:inputType="number"
-            android:text="@={`` + viewModel.idCardNumber}"
+            android:text="@={viewModel.idCardNumber}"
             tools:text="@sample/idNumbers" />
 
         <Button

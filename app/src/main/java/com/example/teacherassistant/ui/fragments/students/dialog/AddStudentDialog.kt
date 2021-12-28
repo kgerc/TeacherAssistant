@@ -8,16 +8,41 @@ import android.view.LayoutInflater
 import androidx.fragment.app.DialogFragment
 import com.example.teacherassistant.DialogManager
 import com.example.teacherassistant.R
+import com.example.teacherassistant.databinding.AddEditStudentDialogBinding
 import com.example.teacherassistant.ui.fragments.students.StudentsViewModel
-import org.koin.android.compat.SharedViewModelCompat.sharedViewModel
+import kotlinx.coroutines.DelicateCoroutinesApi
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
+@DelicateCoroutinesApi
 class AddStudentDialog : DialogFragment() {
 
     private val vm: StudentsViewModel by sharedViewModel()
     private val dialogManager: DialogManager by inject()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return activity?.let {
+            // Use the Builder class for convenient dialog construction
+
+            val binding = AddEditStudentDialogBinding.inflate(LayoutInflater.from(context))
+            binding.viewModel = vm
+
+            val builder = AlertDialog.Builder(it)
+            builder
+                .setView(binding.root)
+                .setTitle(R.string.add_student_title)
+                .setPositiveButton(R.string.ok
+                ) { _, _ ->
+                    vm.insert()
+                    vm.clear()
+                }
+                .setNegativeButton(R.string.cancel
+                ) { _, _ ->
+                    vm.clear()
+                }
+            // Create the AlertDialog object and return it
+            builder.create()
+        } ?: throw IllegalStateException("Activity cannot be null")
     }
 
     override fun onCancel(dialog: DialogInterface) {

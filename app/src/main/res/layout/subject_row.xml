@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/subject_row_name_tv"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:text="TextView"
+        android:textSize="20sp"
+        tools:text="@tools:sample/full_names" />
+
+    <ImageButton
+        android:id="@+id/row_subject_edit_btn"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/row_subject_remove_btn"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+</LinearLayout>

@@ -6,6 +6,7 @@ import com.example.teacherassistant.data.TeacherAssistantDatabase
 import com.example.teacherassistant.data.TeacherAssistantRepository
 import com.example.teacherassistant.data.entities.Student
 import com.example.teacherassistant.helpers.asSelectable
+import com.example.teacherassistant.helpers.deselectAll
 import com.example.teacherassistant.helpers.selected
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -21,7 +22,7 @@ class StudentsViewModel constructor(
 
     var firstName: String? = null
     var surName: String? = null
-    val idCardNumber: Long? = null
+    var idCardNumber: String? = null
 
     var subjects = database.subjects.all.value?.asSelectable().orEmpty()
 
@@ -32,6 +33,7 @@ class StudentsViewModel constructor(
         repo.editedStudent.observeForever {
             firstName = it?.firstName
             surName = it?.surName
+            idCardNumber = it?.idCardNumber
             it?.let {
                 GlobalScope.launch {
                     val studentSubjects = repo.getStudentSubjects(it).map { subject ->  subject.id }
@@ -51,8 +53,12 @@ class StudentsViewModel constructor(
     }
 
     fun clear() {
+        repo.clearEditedStudent()
+        subjects.deselectAll()
     }
+    fun showSelectSubjects() = dialogManager.showSelectStudentSubjectsDialog()
 
-    override fun deleteStudent(student: Student) = TODO()
+    override fun deleteStudent(student: Student) = repo.removeStudent(student)
     override fun showEditStudent(student: Student) = TODO()
+    //override fun showStudentGrades(student: Student) = TODO()
 }

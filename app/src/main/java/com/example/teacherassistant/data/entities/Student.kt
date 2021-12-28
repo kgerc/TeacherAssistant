@@ -7,10 +7,10 @@ import androidx.room.PrimaryKey
 class Student(
     val firstName: String,
     val surName: String,
-    val idCardNumber: Long
+    val idCardNumber: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 
-    override fun toString(): String = "$firstName $surName"
+    override fun toString(): String = "$firstName $surName $idCardNumber"
 }

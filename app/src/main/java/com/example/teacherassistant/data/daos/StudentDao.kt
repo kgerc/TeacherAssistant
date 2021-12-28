@@ -15,6 +15,9 @@ interface StudentDao {
     @Query("SELECT * FROM students WHERE id = :ID")
     fun getById(ID: Long): Student
 
+    @Query("SELECT s.firstName, s.surName, s.idCardNumber, s.id FROM students s JOIN student_to_subject_rel stos ON s.id = stos.student_id WHERE stos.subject_id = :subjectID" )
+    fun getBySubject(subjectID: Long): List<Student>
+
     @Insert
     fun insert(student: Student): Long
 
