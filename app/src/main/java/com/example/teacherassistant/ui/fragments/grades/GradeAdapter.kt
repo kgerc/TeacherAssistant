@@ -28,7 +28,7 @@ class GradeAdapter(owner: LifecycleOwner, data: LiveData<List<Grade>>, private v
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GradeHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.row_grade, parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.grade_row, parent,false)
         return GradeHolder(v)
     }
 

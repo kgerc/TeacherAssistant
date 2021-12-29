@@ -171,6 +171,7 @@ class TeacherAssistantRepository(private val database: TeacherAssistantDatabase)
     fun clearEditedGrade() {
         editedGrade.value = null
     }
+    fun clearGradeFilter() { gradeFilter.value = null }
     //FILTER
     fun filterGradesBySubject(subject: Subject) {
         GlobalScope.launch {

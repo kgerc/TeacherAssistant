@@ -3,13 +3,20 @@ package com.example.teacherassistant.ui.fragments.grades.dialog
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.example.teacherassistant.R
+import com.example.teacherassistant.databinding.AddEditGradeDialogBinding
+import com.example.teacherassistant.databinding.AddEditStudentDialogBinding
+import com.example.teacherassistant.ui.fragments.grades.GradesViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class AddGradeDialog : DialogFragment() {
@@ -24,11 +31,12 @@ class AddGradeDialog : DialogFragment() {
         }
     }
 
-    val vm: GradesVM by sharedViewModel()
+    val vm: GradesViewModel by sharedViewModel()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val v = edu.quacke.teacherassistant.databinding.DialogAddEditGradeBinding.inflate(
+        val v = AddEditGradeDialogBinding.inflate(
             LayoutInflater.from(context))
         v.viewModel = vm;
 

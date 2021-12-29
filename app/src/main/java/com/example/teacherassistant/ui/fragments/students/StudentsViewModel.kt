@@ -1,5 +1,6 @@
 package com.example.teacherassistant.ui.fragments.students
 
+import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import com.example.teacherassistant.DialogManager
 import com.example.teacherassistant.data.TeacherAssistantDatabase
@@ -59,6 +60,6 @@ class StudentsViewModel constructor(
     fun showSelectSubjects() = dialogManager.showSelectStudentSubjectsDialog()
 
     override fun deleteStudent(student: Student) = repo.removeStudent(student)
-    override fun showEditStudent(student: Student) = TODO()
-    //override fun showStudentGrades(student: Student) = TODO()
+    override fun showEditStudent(student: Student) = dialogManager.showEditStudentDialog(student)
+    override fun showStudentGrades(student: Student) = dialogManager.showGradesForStudent(student)
 }

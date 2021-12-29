@@ -19,7 +19,7 @@ class GradesFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_grades, container, false)
+        val view = inflater.inflate(R.layout.grades_fragment, container, false)
 
         val gradeList: RecyclerView = view.findViewById(R.id.grades_rv)
         gradeList.layoutManager = LinearLayoutManager(context)
