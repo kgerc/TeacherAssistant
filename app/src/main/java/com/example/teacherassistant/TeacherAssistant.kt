@@ -8,9 +8,7 @@ import com.example.teacherassistant.ui.fragments.students.StudentsViewModel
 import com.example.teacherassistant.ui.fragments.subjects.SubjectsViewModel
 import edu.quacke.teacherassistant.ui.fragments.summary.SummaryViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
-import org.koin.androidx.compose.get
-import org.koin.androidx.viewmodel.ext.android.viewModel
-
+import org.koin.androidx.viewmodel.dsl.viewModel
 
 @DelicateCoroutinesApi
 class TeacherAssistant: Application() {

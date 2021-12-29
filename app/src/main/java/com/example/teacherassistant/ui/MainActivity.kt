@@ -1,14 +1,11 @@
 package com.example.teacherassistant.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.DialogFragment
@@ -18,12 +15,17 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.teacherassistant.DialogManager
 import com.example.teacherassistant.R
 import com.example.teacherassistant.data.TeacherAssistantRepository
-import com.example.teacherassistant.databinding.ActivityMainBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
+import java.lang.Exception
+import android.view.InflateException
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,8 +43,9 @@ class MainActivity : AppCompatActivity() {
     private val repository: TeacherAssistantRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        try {
         super.onCreate(savedInstanceState)
-        val view = layoutInflater.inflate(R.layout.activity_main, null)
+        val view = layoutInflater.inflate(R.layout.main_activity, null)
 
         Companion.fragmentManager = supportFragmentManager
 
@@ -84,6 +87,9 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        } catch (e: Exception) {
+            throw e
+        }
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
