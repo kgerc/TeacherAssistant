@@ -12,11 +12,11 @@ import com.example.teacherassistant.ui.fragments.students.dialog.AddStudentDialo
 import com.example.teacherassistant.ui.fragments.students.dialog.SelectStudentSubjectsDialog
 import com.example.teacherassistant.ui.fragments.subjects.dialog.AddSubjectDialog
 import com.example.teacherassistant.ui.fragments.subjects.dialog.SelectSubjectStudentsDialog
-import kotlinx.coroutines.DelicateCoroutinesApi
+import org.koin.core.component.KoinApiExtension
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-@DelicateCoroutinesApi
+@KoinApiExtension
 class DialogManager(private val fragmentManager: FragmentManager, private val navController: NavController): KoinComponent {
     private val repo: TeacherAssistantRepository by inject()
 

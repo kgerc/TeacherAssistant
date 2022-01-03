@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.R
 import kotlinx.coroutines.DelicateCoroutinesApi
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 @DelicateCoroutinesApi
 class StudentsFragment : Fragment() {

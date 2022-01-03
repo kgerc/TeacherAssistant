@@ -1,6 +1,5 @@
 package com.example.teacherassistant.ui.fragments.students
 
-import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import com.example.teacherassistant.DialogManager
 import com.example.teacherassistant.data.TeacherAssistantDatabase
@@ -9,11 +8,9 @@ import com.example.teacherassistant.data.entities.Student
 import com.example.teacherassistant.helpers.asSelectable
 import com.example.teacherassistant.helpers.deselectAll
 import com.example.teacherassistant.helpers.selected
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@DelicateCoroutinesApi
 class StudentsViewModel constructor(
     database: TeacherAssistantDatabase,
     private val repo: TeacherAssistantRepository,

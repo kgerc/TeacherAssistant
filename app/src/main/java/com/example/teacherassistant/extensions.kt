@@ -6,6 +6,7 @@ import androidx.room.RoomDatabase
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
+import org.koin.core.logger.Level
 import org.koin.dsl.ModuleDeclaration
 import org.koin.dsl.module
 
@@ -16,7 +17,7 @@ fun Application.addModules(moduleDeclaration: ModuleDeclaration) {
     val addedModules = module(moduleDeclaration = moduleDeclaration)
 
     org.koin.core.context.startKoin {
-        androidLogger()
+        androidLogger(Level.ERROR)
         androidContext(self)
         androidFileProperties()
         modules(addedModules)

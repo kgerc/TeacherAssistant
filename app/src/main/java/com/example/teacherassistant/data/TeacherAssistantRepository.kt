@@ -13,7 +13,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 
-@DelicateCoroutinesApi
 class TeacherAssistantRepository(private val database: TeacherAssistantDatabase) {
     //ADD & UPDATE
     fun addStudentSubjectRelation(student: Student, subject: Subject) {

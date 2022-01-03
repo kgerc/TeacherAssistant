@@ -11,7 +11,7 @@ import com.example.teacherassistant.R
 import com.example.teacherassistant.data.entities.Subject
 import com.example.teacherassistant.helpers.SelectableList
 import com.example.teacherassistant.ui.fragments.students.StudentsViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class SelectStudentSubjectsDialog : DialogFragment() {
 

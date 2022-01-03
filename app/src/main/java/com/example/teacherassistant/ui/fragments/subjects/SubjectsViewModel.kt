@@ -11,13 +11,15 @@ import com.example.teacherassistant.helpers.deselectAll
 import com.example.teacherassistant.helpers.selected
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+
 
 class SubjectsViewModel(
     database: TeacherAssistantDatabase,
-    private val repository: TeacherAssistantRepository,
-    private val dialogManager: DialogManager
-) : ViewModel(), ISubjectCallback {
-
+    private val repository: TeacherAssistantRepository
+) : ViewModel(), ISubjectCallback, KoinComponent {
+    private val dialogManager: DialogManager by inject()
     var name: String? = null
     var dayOfWeek: String? = null
     var hoursBlock: String? = null

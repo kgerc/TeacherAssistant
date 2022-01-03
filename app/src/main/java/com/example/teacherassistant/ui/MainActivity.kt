@@ -1,6 +1,7 @@
 package com.example.teacherassistant.ui
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,11 +21,6 @@ import com.google.android.material.navigation.NavigationView
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
-import java.lang.Exception
-import android.view.InflateException
-
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,9 +39,8 @@ class MainActivity : AppCompatActivity() {
     private val repository: TeacherAssistantRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        try {
         super.onCreate(savedInstanceState)
-        val view = layoutInflater.inflate(R.layout.main_activity, null)
+        val view = layoutInflater.inflate(R.layout.activity_main, null)
 
         Companion.fragmentManager = supportFragmentManager
 
@@ -87,15 +82,12 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        } catch (e: Exception) {
-            throw e
-        }
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
-    }*/
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)

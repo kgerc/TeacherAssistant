@@ -14,9 +14,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.example.teacherassistant.R
 import com.example.teacherassistant.databinding.AddEditGradeDialogBinding
-import com.example.teacherassistant.databinding.AddEditStudentDialogBinding
 import com.example.teacherassistant.ui.fragments.grades.GradesViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
 class AddGradeDialog : DialogFragment() {

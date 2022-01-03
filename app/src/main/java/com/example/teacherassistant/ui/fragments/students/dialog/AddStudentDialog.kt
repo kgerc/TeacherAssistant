@@ -10,11 +10,9 @@ import com.example.teacherassistant.DialogManager
 import com.example.teacherassistant.R
 import com.example.teacherassistant.databinding.AddEditStudentDialogBinding
 import com.example.teacherassistant.ui.fragments.students.StudentsViewModel
-import kotlinx.coroutines.DelicateCoroutinesApi
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-@DelicateCoroutinesApi
 class AddStudentDialog : DialogFragment() {
 
     private val vm: StudentsViewModel by sharedViewModel()

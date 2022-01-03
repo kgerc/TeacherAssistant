@@ -5,8 +5,6 @@
         <item>Wednesday</item>
         <item>Thursday</item>
         <item>Friday</item>
-        <item>Saturday</item>
-        <item>Sunday</item>
     </string-array>
 
     <string name="app_name">TeacherAssistant</string>
@@ -20,6 +18,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="name_hint">First Name</string>
+    <string name="hours_block_hint">Hours block</string>
     <string name="surname_hint">Surname</string>
     <string name="id_card_number_hint">Id card number</string>
     <string name="menu_subjects">Subjects</string>
