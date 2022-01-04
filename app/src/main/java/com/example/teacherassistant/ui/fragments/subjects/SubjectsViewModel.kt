@@ -43,6 +43,8 @@ class SubjectsViewModel(
         }
         repository.editedSubject.observeForever {
             name = it?.name
+            hoursBlock = it?.hoursBlock
+            dayOfWeek = it?.dayOfWeek
             it?.let {
                 GlobalScope.launch {
                     val subjectStudents = repository.getSubjectStudents(it).map { student ->  student.id }
