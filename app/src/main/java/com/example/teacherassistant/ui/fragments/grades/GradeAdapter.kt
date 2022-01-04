@@ -49,7 +49,7 @@ class GradeAdapter(owner: LifecycleOwner, data: LiveData<List<Grade>>, private v
             val student = relation.second
 
             MainScope().launch {
-                holder.studentTv.text = student.toString()
+                holder.studentTv.text = "${student.firstName} ${student.surName}"
                 holder.subjectTv.text = subject.name
             }
         }

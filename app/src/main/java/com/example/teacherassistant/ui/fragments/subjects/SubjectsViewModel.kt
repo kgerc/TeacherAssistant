@@ -27,7 +27,7 @@ class SubjectsViewModel(
 
     fun insert() {
         repository.addOrEditSubject(
-            Subject(name!!,dayOfWeek!!,hoursBlock!!).also { it.id = repository.editedSubject.value?.id ?: 0L },
+            Subject(name!!,selectedDayOfWeek.value!!,hoursBlock!!).also { it.id = repository.editedSubject.value?.id ?: 0L },
             *students.selected.toTypedArray()
         )
     }

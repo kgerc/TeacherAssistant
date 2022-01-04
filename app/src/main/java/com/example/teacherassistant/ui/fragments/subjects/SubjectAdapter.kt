@@ -15,7 +15,8 @@ class SubjectHolder(view: View): RecyclerView.ViewHolder(view) {
     val subjectNameTextView: TextView = view.findViewById(R.id.subject_row_name_tv)
     val removeSubjectBtn: ImageButton = view.findViewById(R.id.row_subject_remove_btn)
     val editSubjectBtn: ImageButton = view.findViewById(R.id.row_subject_edit_btn)
-
+    val subjectDayOfWeekTv: TextView = view.findViewById(R.id.subject_row_day_of_week_tv)
+    val subjectHoursBlockTv: TextView = view.findViewById(R.id.subject_row_hours_block_tv)
 }
 
 class SubjectAdapter(private var data: LiveData<List<Subject>>, private val callback: ISubjectCallback): RecyclerView.Adapter<SubjectHolder>(), KoinComponent {
@@ -31,6 +32,8 @@ class SubjectAdapter(private var data: LiveData<List<Subject>>, private val call
         val subject = data.value?.get(position) as Subject
 
         holder.subjectNameTextView.text = subject.name
+        holder.subjectDayOfWeekTv.text = subject.dayOfWeek
+        holder.subjectHoursBlockTv.text = subject.hoursBlock
         holder.removeSubjectBtn.setOnClickListener {
             callback.deleteSubject(subject)
         }

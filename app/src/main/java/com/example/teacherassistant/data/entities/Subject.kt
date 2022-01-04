@@ -12,5 +12,5 @@ class Subject(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0
 
-    override fun toString(): String = "$name"
+    override fun toString(): String = "$name $dayOfWeek $hoursBlock"
 }
