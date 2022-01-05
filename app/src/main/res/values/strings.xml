@@ -36,4 +36,5 @@
     <string name="add_grade_title">Add a grade</string>
     <string name="menu_summary">Summary</string>
     <string name="nav_header_title">Assistant to the Teacher</string>
+    <string name="clear_db">Clear data</string>
 </resources>

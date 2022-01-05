@@ -2,6 +2,7 @@ package com.example.teacherassistant.ui
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,7 +22,6 @@ import com.google.android.material.navigation.NavigationView
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
             showDialog()
         }
 
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
@@ -85,6 +84,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.clear_db_data -> {
+                repository.clearDatabase()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

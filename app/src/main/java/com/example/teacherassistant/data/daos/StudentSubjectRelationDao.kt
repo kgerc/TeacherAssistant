@@ -30,6 +30,9 @@ interface StudentSubjectRelationDao {
     @Delete
     fun delete(student_to_subject: StudentSubjectRelation)
 
+    @Query("DELETE FROM student_to_subject_rel")
+    fun deleteAll()
+
     @Update
     fun update(student_to_subject: StudentSubjectRelation)
 }

@@ -163,6 +163,16 @@ class TeacherAssistantRepository(private val database: TeacherAssistantDatabase)
             gradeFilter.postValue { relations.contains(it.studentSubjectId) }
         }
     }
+
+    fun clearDatabase() {
+        GlobalScope.launch {
+            database.grades.deleteAll()
+            database.students.deleteAll()
+            database.subjects.deleteAll()
+            database.studentSubjectRels.deleteAll()
+        }
+    }
+
     // live data objects
     val editedStudent = MutableLiveData<Student?>()
     val editedSubject = MutableLiveData<Subject?>()

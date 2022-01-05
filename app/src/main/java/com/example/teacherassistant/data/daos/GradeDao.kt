@@ -27,6 +27,9 @@ interface GradeDao {
     @Delete
     fun delete(grade: Grade)
 
+    @Query("DELETE FROM grades")
+    fun deleteAll()
+
     @Update
     fun update(grade: Grade)
 }
