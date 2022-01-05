@@ -22,6 +22,7 @@ import com.google.android.material.navigation.NavigationView
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -89,6 +90,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.clear_db_data -> {
+                Toast.makeText(applicationContext, "Data cleared", Toast.LENGTH_LONG).show()
                 repository.clearDatabase()
                 true
             }

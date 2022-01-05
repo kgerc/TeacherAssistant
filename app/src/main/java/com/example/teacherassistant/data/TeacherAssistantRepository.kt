@@ -15,6 +15,13 @@ import java.time.LocalDateTime
 
 class TeacherAssistantRepository(private val database: TeacherAssistantDatabase) {
     //ADD & UPDATE
+    fun addStudentSubjectRelation(student: Student, subject: Subject) {
+        GlobalScope.launch {
+            database.studentSubjectRels.insert(
+                StudentSubjectRelation(student.id, subject.id)
+            )
+        }
+    }
     fun addSubjectWithStudents(subject: Subject, vararg students: Student) {
         GlobalScope.launch {
             subject.id = database.subjects.insert(subject)
@@ -24,20 +31,34 @@ class TeacherAssistantRepository(private val database: TeacherAssistantDatabase)
         }
     }
 
+    fun addStudentWithSubjects(student: Student, vararg subjects: Subject) {
+        GlobalScope.launch {
+            student.id = database.students.insert(student)
+            val relations =
+                subjects.map { StudentSubjectRelation(student.id, it.id) }.toTypedArray()
+            database.studentSubjectRels.insert(*relations)
+        }
+    }
+
     fun addOrEditStudent(student: Student, vararg subjects: Subject) {
         GlobalScope.launch {
-            database.students.update(student)
+            if (student.id == 0L) {
+                addStudentWithSubjects(student, *subjects)
+            } else {
+                database.students.update(student)
 
-            val relations = database.studentSubjectRels.getByStudent(student.id)
-            val newRelations =
-                subjects.filter { subj -> !relations.any { rel -> rel.subjectId == subj.id } }
-                    .map { StudentSubjectRelation(student.id, it.id) }
-            val removedRelations =
-                relations.filter { rel -> !subjects.any { subj -> rel.subjectId == subj.id } }
+                val relations = database.studentSubjectRels.getByStudent(student.id)
+                val newRelations =
+                    subjects.filter { subj -> !relations.any { rel -> rel.subjectId == subj.id } }
+                        .map { StudentSubjectRelation(student.id, it.id) }
+                val removedRelations =
+                    relations.filter { rel -> !subjects.any { subj -> rel.subjectId == subj.id } }
 
-            database.studentSubjectRels.insert(*newRelations.toTypedArray())
+                database.studentSubjectRels.insert(*newRelations.toTypedArray())
+                database.studentSubjectRels.insert(*newRelations.toTypedArray())
 
-            removedRelations.forEach { database.studentSubjectRels.delete(it) }
+                removedRelations.forEach { database.studentSubjectRels.delete(it) }
+            }
         }
     }
 

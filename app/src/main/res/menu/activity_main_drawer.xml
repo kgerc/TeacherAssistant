@@ -16,5 +16,9 @@
             android:id="@+id/nav_grades"
             android:icon="@android:drawable/ic_menu_edit"
             android:title="@string/menu_grades" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@android:drawable/ic_menu_sort_by_size"
+            android:title="@string/nav_stats" />
     </group>
 </menu>

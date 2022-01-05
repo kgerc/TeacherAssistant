@@ -17,7 +17,7 @@ import com.example.teacherassistant.data.entities.Subject
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-@Database(entities = [Student::class, Subject::class, StudentSubjectRelation::class, Grade::class], version = 1)
+@Database(entities = [Student::class, Subject::class, StudentSubjectRelation::class, Grade::class], version = 7)
 @TypeConverters(Converters::class)
 abstract class TeacherAssistantDatabase : RoomDatabase() {
     abstract val students: StudentDao
