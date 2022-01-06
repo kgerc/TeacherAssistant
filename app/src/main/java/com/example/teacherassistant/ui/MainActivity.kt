@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { controller, destination, _ -> floatingButton.show()
             if (controller.currentDestination?.id == R.id.nav_grades) repository.clearGradeFilter()
+            if (controller.currentDestination?.id == R.id.nav_stats) floatingButton.hide()
         }
 
         loadKoinModules(
@@ -75,7 +76,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_subjects,
             R.id.nav_students,
-            R.id.nav_grades
+            R.id.nav_grades,
+            R.id.nav_stats
         ), drawerLayout)
 
         setupActionBarWithNavController(navController, appBarConfiguration)

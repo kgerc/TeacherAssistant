@@ -9,7 +9,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grades"
+            android:text="Grade"
             android:layout_weight="0.1"
             android:textSize="20sp"/>
         <TextView
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:layout_weight="0.9"
-            android:text="Percentages" />
+            android:text="Percentage" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
